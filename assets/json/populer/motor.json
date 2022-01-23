@@ -1,0 +1,32 @@
+{
+    "motor": [
+        {
+            "name": "Vespa LX iget 2018",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/fuvsae7vphtg2-ID/image;s=780x0;q=60",
+            "brand": "Alex Roman",
+            "price": 300000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Yamaha Nmax 2020",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/4xghq9ow1np42-ID/image;s=780x0;q=60",
+            "brand": "Ruddy Irawan Sari",
+            "price": 150000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Honda Beat 2019",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/1bw6ff6zufhw1-ID/image;s=780x0;q=60",
+            "brand": "Sahrul Syamsudin",
+            "price": 100000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Vario 125",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/0l61wddkgih53-ID/image;s=780x0;q=60",
+            "brand": "Joni Joni Yes Mama",
+            "price": 100000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        }
+    ]
+}

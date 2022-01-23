@@ -1,9 +1,8 @@
 import 'dart:convert';
 
-import 'package:trily/model/car.dart';
-import 'package:trily/pages/payment.dart';
+import 'package:trily/model/cart.dart';
 import 'package:trily/pages/car_view.dart';
-import 'package:dotted_border/dotted_border.dart';
+import 'package:trily/pages/motor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -19,26 +18,17 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
   late List<dynamic> cartItems = [];
   List<int> cartItemCount = [1, 1, 1, 1];
-  int totalPrice = 0;
 
   Future<void> fetchItems() async {
-    final String response = await rootBundle.loadString('assets/cart.json');
+    final String response = await rootBundle.loadString('assets/json/cart.json');
     final data = await json.decode(response);
 
-    cartItems = data['cars'].map((data) => Car.fromJson(data)).toList();
+    cartItems = data['cart'].map((data) => Cart.fromJson(data)).toList();
 
-    sumTotal();
-  }
-
-  sumTotal() {
-    cartItems.forEach((item) {
-      totalPrice = item.price + totalPrice;
-    });
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     fetchItems().whenComplete(() => setState(() {}));
@@ -64,11 +54,11 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                     itemBuilder: (context, index, animation) {
                       return Slidable(
                         key: const ValueKey(0),
-                        startActionPane: ActionPane(
-                          motion: const ScrollMotion(),
 
+                        endActionPane: const ActionPane(
+                          motion: ScrollMotion(),
                           dismissible: null,
-                          children: <Widget>[
+                          children: [
                             SlidableAction(
                               onPressed: null,
                               backgroundColor: Color(0xFFFE4A49),
@@ -79,100 +69,84 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                           ],
                         ),
 
-                        endActionPane: const ActionPane(
-                          motion: ScrollMotion(),
-                          children: [
-                            SlidableAction(
-                              onPressed: null,
-                              backgroundColor: Color(0xFF7BC043),
-                              foregroundColor: Colors.white,
-                              icon: Icons.archive,
-                              label: 'Booking',
-                            ),
-                          ],
-                        ),
-
                         child: cartItem(cartItems[index], index, animation),
                       );
                     },
                   )
                 : Container(),
           ),
-          SizedBox(height: 30),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Biaya Admin', style: TextStyle(fontSize: 20)),
-                Text('\Rp 5.000',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: DottedBorder(
-                color: Colors.grey.shade400,
-                dashPattern: [10, 10],
-                padding: EdgeInsets.all(0),
-                child: Container()),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Total', style: TextStyle(fontSize: 20)),
-                Text(RupiahFormat.convertToIdr(totalPrice + 5000, 0),
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: MaterialButton(
-              onPressed: () {},
-              height: 50,
-              elevation: 0,
-              splashColor: Colors.yellow[700],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              color: Colors.blue.shade900,
-              child: Center(
-                child: Text(
-                  "Bayar",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
-            ),
-          )
+          // SizedBox(height: 30),
+          // Container(
+          //   padding: EdgeInsets.symmetric(horizontal: 20),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: <Widget>[
+          //       Text('Biaya Admin', style: TextStyle(fontSize: 20)),
+          //       Text('\Rp 5.000',
+          //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+          //     ],
+          //   ),
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.all(20.0),
+          //   child: DottedBorder(
+          //       color: Colors.grey.shade400,
+          //       dashPattern: [10, 10],
+          //       padding: EdgeInsets.all(0),
+          //       child: Container()),
+          // ),
+          // Container(
+          //   padding: EdgeInsets.symmetric(horizontal: 20),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: <Widget>[
+          //       Text('Total', style: TextStyle(fontSize: 20)),
+          //       Text(RupiahFormat.convertToIdr(totalPrice + 5000, 0),
+          //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(height: 10),
+          // Padding(
+          //   padding: EdgeInsets.all(20.0),
+          //   child: MaterialButton(
+          //     onPressed: () {},
+          //     height: 50,
+          //     elevation: 0,
+          //     splashColor: Colors.yellow[700],
+          //     shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(10)),
+          //     color: Colors.blue.shade900,
+          //     child: Center(
+          //       child: Text(
+          //         "Bayar",
+          //         style: TextStyle(color: Colors.white, fontSize: 18),
+          //       ),
+          //     ),
+          //   ),
+          // )
         ]));
   }
 
-  cartItem(Car cart, int index, animation) {
+  cartItem(dynamic cart, int index, animation) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ProductViewPage(car: cart)));
+        switch (cart.type) {
+          case "motor":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MotorViewPage(motor: cart)));
+            break;
+          default:
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProductViewPage(car: cart)));
+        }
       },
       child: SlideTransition(
         position: Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero)
             .animate(animation),
         child: Container(
-          margin: EdgeInsets.only(bottom: 10, top: 10),
-          // padding: EdgeInsets.symmetric(horizontal: 10),
+          // margin: EdgeInsets.only(bottom: 10, top: 10),
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade200,
-                offset: Offset(0, 2),
-                blurRadius: 6,
-              ),
-            ],
           ),
           child: Row(children: <Widget>[
             Container(
@@ -209,64 +183,21 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       ),
                     ),
                     SizedBox(height: 15),
-                    Text(
-                      RupiahFormat.convertToIdr(cart.price, 0),
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey.shade800,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          RupiahFormat.convertToIdr(cart.price, 0),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey.shade800,
+                          ),
+                        ),
+                      Text(" /hari", style: TextStyle(color: Colors.black38, fontSize: 14),)
+                      ],
                     ),
                     SizedBox(height: 10),
                   ]),
             ),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   children: [
-            //     MaterialButton(
-            //       minWidth: 10,
-            //       padding: EdgeInsets.all(0),
-            //       onPressed: () {
-            //         setState(() {
-            //           if (cartItemCount[index] > 1) {
-            //             cartItemCount[index]--;
-            //             totalPrice = totalPrice - cart.price;
-            //           }
-            //         });
-            //       },
-            //       shape: CircleBorder(),
-            //       child: Icon(
-            //         Icons.remove_circle_outline,
-            //         color: Colors.grey.shade400,
-            //         size: 30,
-            //       ),
-            //     ),
-            //     Container(
-            //       child: Center(
-            //         child: Text(
-            //           cartItemCount[index].toString(),
-            //           style:
-            //               TextStyle(fontSize: 20, color: Colors.grey.shade800),
-            //         ),
-            //       ),
-            //     ),
-            //     MaterialButton(
-            //       padding: EdgeInsets.all(0),
-            //       minWidth: 10,
-            //       splashColor: Colors.yellow[700],
-            //       onPressed: () {
-            //         setState(() {
-            //           cartItemCount[index]++;
-            //           totalPrice = totalPrice + cart.price;
-            //         });
-            //       },
-            //       shape: CircleBorder(),
-            //       child: Icon(
-            //         Icons.add_circle,
-            //         size: 30,
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ]),
         ),
       ),

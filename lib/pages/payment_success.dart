@@ -1,4 +1,4 @@
-import 'package:trily/main.dart';
+import 'package:trily/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSuccess extends StatefulWidget {

@@ -21,6 +21,7 @@ dependencies:
   dotted_border: ^2.0.0+1
   flutter_slidable: ^1.1.0
   intl: ^0.17.0
+  babstrap_settings_screen: ^0.1.1
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +39,9 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/onboarding/
+    - assets/json/
+    - assets/json/populer/
 
   # fonts:
   #   - family: Schyler

@@ -1,0 +1,12 @@
+{
+    "specifications": [
+        {
+            "seat": "4",
+            "type": "Automatic",
+            "bt": "Bluetooth",
+            "ac": "AC",
+            "usb": "USB Port",
+            "android": "Android Auto"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "pickup": [
+        {
+            "name": "Scoopy",
+            "imageURL": "https://imgcdn.oto.com/large/gallery/exterior/38/2041/toyota-avanza-veloz-front-angle-low-view-718930.jpg",
+            "brand": "Punyae Adit",
+            "price": 100000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Vario 150",
+            "imageURL": "https://imgcdn.oto.com/large/gallery/exterior/7/2437/daihatsu-xenia-2022-front-angle-low-view-954960.jpg",
+            "brand": "Punyae Adit",
+            "price": 650000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+          "name": "Vespa",
+          "imageURL": "https://imgcdn.oto.com/large/gallery/exterior/38/1917/toyota-alphard-front-angle-low-view-530124.jpg",
+          "brand": "Punyae Adit",
+          "price": 1000000,
+          "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Supra 125",
+            "imageURL": "https://imgcdn.oto.com/large/gallery/exterior/38/1654/toyota-avanza-front-angle-low-view-844132.jpg",
+            "brand": "Punyae Adit",
+            "price": 400000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+
+        }
+    ]
+}

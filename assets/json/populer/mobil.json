@@ -1,0 +1,32 @@
+{
+    "cars": [
+        {
+            "name": "Mazda CX-5",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/umpir3dpom8k2-ID/image;s=780x0;q=60",
+            "brand": "PT. Pilar (example)",
+            "price": 800000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Honda Jazz (2015)",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/uetb0vptjvom-ID/image;s=780x0;q=60",
+            "brand": "Agus Hariyanto (example)",
+            "price": 40000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Honda Brio 2019",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/4tgn30lboihg1-ID/image;s=780x0;q=60",
+            "brand": "Ari Andi (example)",
+            "price": 550000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            "name": "Honda Civic 2017",
+            "imageURL": "https://apollo-singapore.akamaized.net/v1/files/8k7luhmzdsa62-ID/image;s=780x0;q=60",
+            "brand": "Yudi Yani (example)",
+            "price": 500000,
+            "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        }
+    ]
+}

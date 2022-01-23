@@ -1,0 +1,28 @@
+{
+  "cart": [
+    {
+      "name": "Mazda CX-5",
+      "type": "mobil",
+      "imageURL": "https://apollo-singapore.akamaized.net/v1/files/umpir3dpom8k2-ID/image;s=780x0;q=60",
+      "brand": "PT. Pilar (example)",
+      "price": 800000,
+      "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "name": "Vespa LX iget 2018",
+      "type": "motor",
+      "imageURL": "https://apollo-singapore.akamaized.net/v1/files/fuvsae7vphtg2-ID/image;s=780x0;q=60",
+      "brand": "Alex Roman",
+      "price": 300000,
+      "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "name": "Honda Jazz (2015)",
+      "type": "mobil",
+      "imageURL": "https://apollo-singapore.akamaized.net/v1/files/uetb0vptjvom-ID/image;s=780x0;q=60",
+      "brand": "Agus Hariyanto (example)",
+      "price": 40000,
+      "ket": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    }
+  ]
+}
